@@ -11,16 +11,17 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream: #FAF7F2;
-    --warm-white: #FFFEFB;
-    --ink: #1C1A17;
-    --ink-muted: #6B6560;
-    --ink-faint: #C2BAB0;
-    --rose: #C4737A;
-    --rose-light: #F0DEDE;
-    --rose-dark: #8C4F54;
-    --border: rgba(28,26,23,0.1);
-    --border-strong: rgba(28,26,23,0.2);
+    --cream: #efeada;
+    --warm-white: #f5f2e8;
+    --ink: #1e2b26;
+    --ink-muted: #4a5e57;
+    --ink-faint: #c3c0aa;
+    --accent: #52796c;
+    --accent-light: #d6e4df;
+    --accent-mid: #819b85;
+    --accent-dark: #3b584b;
+    --border: rgba(30,43,38,0.12);
+    --border-strong: rgba(30,43,38,0.22);
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'DM Sans', system-ui, sans-serif;
   }
@@ -40,7 +41,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(250,247,242,0.92);
+    background: rgba(239,234,218,0.92);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
     display: flex;
@@ -74,7 +75,7 @@
     transition: color 0.2s;
   }
 
-  .nav-links a:hover { color: var(--rose); }
+  .nav-links a:hover { color: var(--accent); }
 
   /* HERO */
   .hero {
@@ -89,10 +90,10 @@
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--rose);
+    color: var(--accent);
     font-weight: 500;
-    border: 1px solid var(--rose-light);
-    background: var(--rose-light);
+    border: 1px solid var(--accent-light);
+    background: var(--accent-light);
     padding: 4px 14px;
     border-radius: 100px;
     margin-bottom: 1.5rem;
@@ -109,7 +110,56 @@
 
   .hero h1 em {
     font-style: italic;
-    color: var(--rose);
+    color: var(--accent);
+  }
+
+  /* PROFILE IMAGE */
+  .profile-img-wrap {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 0.75rem;
+    border: 2px solid var(--border-strong);
+    background: var(--cream);
+  }
+
+  .profile-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .profile-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-faint);
+    background: repeating-linear-gradient(
+      45deg,
+      var(--cream),
+      var(--cream) 5px,
+      var(--warm-white) 5px,
+      var(--warm-white) 10px
+    );
+  }
+
+  .profile-img-placeholder svg {
+    width: 32px;
+    height: 32px;
+    opacity: 0.4;
+  }
+
+  .hero-artist-name {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.5rem !important;
+    font-style: italic;
   }
 
   .hero p {
@@ -135,7 +185,7 @@
   }
 
   .btn-primary:hover {
-    background: var(--rose-dark);
+    background: var(--accent-dark);
     transform: translateY(-1px);
   }
 
@@ -155,8 +205,8 @@
   }
 
   .btn-ghost:hover {
-    color: var(--rose);
-    border-color: var(--rose);
+    color: var(--accent);
+    border-color: var(--accent);
     transform: translateY(-1px);
   }
 
@@ -179,7 +229,7 @@
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--rose);
+    color: var(--accent);
     font-weight: 500;
     margin-bottom: 0.6rem;
   }
@@ -204,7 +254,7 @@
   .status-banner {
     background: var(--warm-white);
     border: 1px solid var(--border);
-    border-left: 3px solid var(--rose);
+    border-left: 3px solid var(--accent);
     border-radius: 4px;
     padding: 0.9rem 1.25rem;
     display: flex;
@@ -220,7 +270,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--rose);
+    background: var(--accent);
     flex-shrink: 0;
     animation: pulse 2s ease-in-out infinite;
   }
@@ -230,7 +280,7 @@
     50% { opacity: 0.4; }
   }
 
-  .status-dot.open { background: #4caf82; }
+  .status-dot.open { background: #52796c; }
 
   /* COMMISSION STATUS BAR */
   .commission-status-bar {
@@ -265,18 +315,18 @@
   }
 
   .status-pill.open {
-    background: #e3f5ec;
-    color: #2d7a52;
+    background: #d6e4df;
+    color: #3b584b;
   }
 
   .status-pill.closed {
-    background: var(--rose-light);
-    color: var(--rose-dark);
+    background: var(--accent-light);
+    color: var(--accent-dark);
   }
 
   .status-pill.waitlist {
-    background: #fef3e2;
-    color: #8a5e1a;
+    background: #d6e4df;
+    color: #3b584b;
   }
 
   .status-pill .dot {
@@ -313,13 +363,13 @@
   }
 
   .pricing-card:hover {
-    border-color: var(--rose);
+    border-color: var(--accent);
     transform: translateY(-2px);
   }
 
   .pricing-card.featured {
-    border-color: var(--rose);
-    background: linear-gradient(160deg, #fffefb 0%, #fdf5f5 100%);
+    border-color: var(--accent);
+    background: linear-gradient(160deg, #f5f2e8 0%, #e8ede8 100%);
   }
 
   /* CARD IMAGE */
@@ -373,7 +423,7 @@
     position: absolute;
     top: -11px;
     left: 1.5rem;
-    background: var(--rose);
+    background: var(--accent);
     color: white;
     font-size: 10px;
     font-weight: 600;
@@ -439,7 +489,7 @@
 
   .pricing-features li::before {
     content: "—";
-    color: var(--rose);
+    color: var(--accent);
     flex-shrink: 0;
     font-size: 12px;
     line-height: 1.9;
@@ -474,8 +524,8 @@
 
   .addon-closed {
     font-size: 10px;
-    background: #f0dede;
-    color: var(--rose-dark);
+    background: #d6e4df;
+    color: var(--accent-dark);
     padding: 2px 8px;
     border-radius: 100px;
     font-weight: 600;
@@ -487,6 +537,13 @@
     font-size: 13px;
     color: var(--ink-muted);
     font-weight: 300;
+  }
+
+  .addon-price {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
   }
 
   /* DELIVERABLES & PAYMENT */
@@ -534,7 +591,7 @@
 
   .info-list li::before {
     content: "◦";
-    color: var(--rose);
+    color: var(--accent);
     flex-shrink: 0;
   }
 
@@ -555,7 +612,7 @@
   .tos-num {
     font-family: var(--serif);
     font-size: 1.5rem;
-    color: var(--rose-light);
+    color: var(--accent-light);
     line-height: 1;
     margin-bottom: 0.5rem;
     display: block;
@@ -599,7 +656,7 @@
   .step-num {
     font-family: var(--serif);
     font-size: 2rem;
-    color: var(--rose-light);
+    color: var(--accent-light);
     line-height: 1;
     margin-bottom: 0.5rem;
   }
@@ -630,7 +687,7 @@
     margin: 0 auto 4rem;
   }
 
-  .cta-section .section-label { color: #c4737a; }
+  .cta-section .section-label { color: #819b85; }
 
   .cta-section h2 {
     font-family: var(--serif);
@@ -641,10 +698,10 @@
     line-height: 1.15;
   }
 
-  .cta-section h2 em { font-style: italic; color: var(--rose); }
+  .cta-section h2 em { font-style: italic; color: var(--accent); }
 
   .cta-section p {
-    color: #A09A94;
+    color: #819b85;
     font-weight: 300;
     margin-bottom: 2rem;
     max-width: 400px;
@@ -654,7 +711,7 @@
 
   .btn-cta {
     display: inline-block;
-    background: var(--rose);
+    background: var(--accent);
     color: white;
     text-decoration: none;
     font-size: 13px;
@@ -667,7 +724,7 @@
   }
 
   .btn-cta:hover {
-    background: var(--rose-dark);
+    background: var(--accent-dark);
     transform: translateY(-1px);
   }
 
@@ -686,7 +743,7 @@
     text-decoration: none;
   }
 
-  footer a:hover { color: var(--rose); }
+  footer a:hover { color: var(--accent); }
 
   /* MOBILE */
   @media (max-width: 600px) {
@@ -718,38 +775,16 @@
   </ul>
 </nav>
 
-<!-- COMMISSION STATUS BAR -->
-<div class="commission-status-bar">
-  <div class="status-item">
-    <span>commissions</span>
-    <span class="status-pill open"><span class="dot"></span>open</span>
-  </div>
-  <div class="status-divider"></div>
-  <div class="status-item">
-    <span>bust up</span>
-    <span class="status-pill open"><span class="dot"></span>open</span>
-  </div>
-  <div class="status-divider"></div>
-  <div class="status-item">
-    <span>half body</span>
-    <span class="status-pill open"><span class="dot"></span>open</span>
-  </div>
-  <div class="status-divider"></div>
-  <div class="status-item">
-    <span>full body</span>
-    <span class="status-pill open"><span class="dot"></span>open</span>
-  </div>
-  <div class="status-divider"></div>
-  <div class="status-item">
-    <span>background add-on</span>
-    <span class="status-pill closed">closed</span>
-  </div>
-</div>
-
 <!-- HERO -->
 <div class="hero">
   <div class="hero-tag">✦ commissions open</div>
-  <h1>let's bring your<br><em>character to life</em></h1>
+  <!-- PROFILE IMAGE: replace src="profile.png" with your actual filename -->
+  <div class="profile-img-wrap">
+    <div class="profile-img-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    </div>
+  </div>
+  <p class="hero-artist-name">Fuemi</p>
   <p>Personal illustration commissions for OCs, fan art, and virtual personas. Delivered with care, communication, and a whole lot of heart.</p>
   <a href="#order" class="btn-primary">request a commission</a>
   <a href="#pricing" class="btn-ghost">view pricing</a>
@@ -775,19 +810,19 @@
       </div>
       <p class="pricing-icon">01 — bust up</p>
       <h3 class="pricing-name">Bust Up</h3>
-      <p class="pricing-desc">Head and shoulders — great for portraits, profile illustrations, and quick character showcases.</p>
+      <span class="status-pill open" style="margin-bottom:1rem;display:inline-flex;"><span class="dot"></span>open</span>
+      <p class="pricing-desc">Head and shoulders.</p>
       <p class="pricing-price">from $80 <span>USD</span></p>
       <ul class="pricing-features">
         <li>Cropped from approximately the chest upward</li>
-        <li>Full rendering with shading and linework</li>
-        <li>Ideal for OC portraits, icons, and emotes</li>
+        <li>Rendering and lineart</li>
         <li>Simple or transparent background included</li>
         <li>Up to 2 revision rounds</li>
       </ul>
     </div>
 
     <div class="pricing-card featured">
-      <span class="featured-badge">most popular</span>
+      <span class="featured-badge">Recommended</span>
       <!-- IMAGE: replace src="half-body.png" with your actual filename -->
       <div class="card-image">
         <div class="card-image-placeholder">
@@ -797,12 +832,12 @@
       </div>
       <p class="pricing-icon">02 — half body</p>
       <h3 class="pricing-name">Half Body</h3>
-      <p class="pricing-desc">Waist-up composition — lets your character's outfit and personality really shine through.</p>
+      <span class="status-pill open" style="margin-bottom:1rem;display:inline-flex;"><span class="dot"></span>open</span>
+      <p class="pricing-desc">Waist-up composition.</p>
       <p class="pricing-price">from $140 <span>USD</span></p>
       <ul class="pricing-features">
         <li>Cropped from approximately the hips upward</li>
-        <li>Full rendering with detailed shading</li>
-        <li>Great for vtuber references, social media, and gifts</li>
+        <li>Rendering and lineart</li>
         <li>Simple or transparent background included</li>
         <li>Up to 2 revision rounds</li>
       </ul>
@@ -818,12 +853,12 @@
       </div>
       <p class="pricing-icon">03 — full body</p>
       <h3 class="pricing-name">Full Body</h3>
-      <p class="pricing-desc">Head to toe — ideal for character sheets, model art, or fully showcasing an elaborate design.</p>
+      <span class="status-pill closed" style="margin-bottom:1rem;display:inline-flex;">closed</span>
+      <p class="pricing-desc">Head to toe.</p>
       <p class="pricing-price">from $200 <span>USD</span></p>
       <ul class="pricing-features">
         <li>Complete character from head to feet</li>
-        <li>Full rendering with complex pose support</li>
-        <li>Best for character reveals, merchandise prep, or model art</li>
+        <li>Rendering and lineart</li>
         <li>Simple or transparent background included</li>
         <li>Up to 2 revision rounds</li>
       </ul>
@@ -844,18 +879,26 @@
   <div class="addon-grid">
     <div class="addon-card">
       <div class="addon-name">Extra Props</div>
+      <span class="status-pill open" style="margin-bottom:0.4rem;display:inline-flex;width:fit-content;"><span class="dot"></span>open</span>
+      <div class="addon-price">from $10 USD</div>
       <div class="addon-desc">Weapons, accessories, objects, or anything your character is holding or interacting with. Quoted based on complexity.</div>
     </div>
     <div class="addon-card">
       <div class="addon-name">Character Complexity</div>
+      <span class="status-pill open" style="margin-bottom:0.4rem;display:inline-flex;width:fit-content;"><span class="dot"></span>open</span>
+      <div class="addon-price">from $50 USD</div>
       <div class="addon-desc">Highly detailed designs — intricate patterns, multiple outfit layers, elaborate accessories, or unusual anatomy — may incur an added fee.</div>
     </div>
     <div class="addon-card">
-      <div class="addon-name">
-        Background
-        <span class="addon-closed">closed</span>
-      </div>
-      <div class="addon-desc">Detailed painted or illustrated backgrounds are currently unavailable. Simple colour washes or gradients remain available at no extra charge.</div>
+      <div class="addon-name">Background</div>
+      <span class="status-pill closed" style="margin-bottom:0.4rem;display:inline-flex;width:fit-content;">closed</span>
+      <div class="addon-price">from $100 USD</div>
+      <div class="addon-desc">A fully illustrated background to set the scene for your character. Availability varies — check status before requesting.</div>
+    </div>
+    <div class="addon-card">
+      <div class="addon-name">Extra Characters</div>
+      <span class="status-pill closed" style="margin-bottom:0.4rem;display:inline-flex;width:fit-content;">closed</span>
+      <div class="addon-desc">Additional characters are priced as a new character of the same tier, up to a maximum of 4 characters per piece. Characters that are out of frame or partially visible may be quoted differently.</div>
     </div>
   </div>
 </section>
@@ -874,17 +917,16 @@
       <ul class="info-list">
         <li>High-resolution PNG at full export size (300 dpi)</li>
         <li>PSD file containing a flattened, merged version of the illustration</li>
-        <li>Files delivered via Google Drive or a link of your choice</li>
-        <li>Please allow up to 48 hours after approval for delivery</li>
+        <li>Files delivered via Google Drive</li>
       </ul>
     </div>
     <div class="info-card">
       <h3>💳 payment methods</h3>
       <ul class="info-list">
         <li>Payment accepted in <strong>USD</strong> only</li>
-        <li><strong>Wise</strong> — preferred for international transfers</li>
-        <li><strong>PayPal</strong> — Friends &amp; Family or Goods &amp; Services</li>
-        <li>Full payment is collected <strong>after</strong> the sketch is reviewed and approved by you</li>
+        <li><strong>Wise</strong> — preferred. Offers better exchange rates and lower fees for international transfers</li>
+        <li><strong>PayPal</strong> — available upon request. Please note that PayPal charges higher transaction fees and less favourable exchange rates compared to Wise</li>
+        <li>Full payment is due <strong>after sketch approval</strong>, before rendering begins</li>
         <li>No payment is required at the inquiry stage</li>
       </ul>
     </div>
